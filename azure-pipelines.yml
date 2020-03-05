@@ -33,5 +33,9 @@ jobs:
       env && \
       go version && \
       uname -a && \
+      echo '???\n' && \
+      ls  && \
+      echo '???\n' && \
+      cat Makefile && \
       make test"
     displayName: 'linux 32bit'
