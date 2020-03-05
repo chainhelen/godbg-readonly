@@ -27,7 +27,7 @@ jobs:
       docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) && \
       apt -y update && \
       apt -y install software-properties-common && \
-      add-apt-repository ppa:gophers/archive && \
+      add-apt-repository ppa:longsleep/golang-backports && \
       apt -y install golang-$(go_version) && \
       go version && \
       uname -a && \
