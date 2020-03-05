@@ -26,8 +26,9 @@ jobs:
       docker pull i386/ubuntu:bionic
       docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) && \
       apt -y update && \
+      apt -y install software-properties-common && \
       add-apt-repository ppa:gophers/archive && \
-      apt install -y golang-$(go_version)-go && \
+      apt -y install golang-$(go_version)-go && \
       go version && \
       uname -a && \
       make test"
