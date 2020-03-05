@@ -28,7 +28,7 @@ jobs:
       apt -y update && \
       apt -y install software-properties-common && \
       add-apt-repository ppa:gophers/archive && \
-      apt -y install golang-$(go_version)-go && \
+      apt -y install golang-$(go_version) && \
       go version && \
       uname -a && \
       make test"
