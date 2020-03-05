@@ -28,7 +28,7 @@ jobs:
       apt-get -y update && \
       apt-get -y install software-properties-common && \
       add-apt-repository ppa:longsleep/golang-backports && \
-      apt-get -y install golang-$(go_version) && \
+      apt-get -y install golang-$(go_version)-go && \
       go version && \
       uname -a && \
       make test"
