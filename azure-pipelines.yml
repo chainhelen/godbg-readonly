@@ -25,10 +25,10 @@ jobs:
   - script: |
       docker pull i386/ubuntu:bionic
       docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) && \
-      apt -y update && \
-      apt -y install software-properties-common && \
+      apt-get -y update && \
+      apt-get -y install software-properties-common && \
       add-apt-repository ppa:longsleep/golang-backports && \
-      apt -y install golang-$(go_version) && \
+      apt-get -y install golang-$(go_version) && \
       go version && \
       uname -a && \
       make test"
