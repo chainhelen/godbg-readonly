@@ -20,7 +20,7 @@ jobs:
   
   variables:
     GOPROJECT: "godbg"
-    GOVERSION: $(go_version)
+    GOVERSION: go_version
   
   steps:
   - script: |
