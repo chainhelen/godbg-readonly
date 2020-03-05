@@ -31,9 +31,9 @@ jobs:
       add-apt-repository ppa:longsleep/golang-backports && \
       apt-get -y install golang-$(GOVERSION)-go && \
       env && \
-      ll /usr/lib/ && \
+      ls /usr/lib/ && \
       echo 'wwwwww!!\n' && \
-      ll /usr/local/ && \
+      ls /usr/local/ && \
       go version && \
       uname -a && \
       make test"
