@@ -19,13 +19,15 @@ jobs:
     maxParallel: 3
   
   variables:
-    GOVERSION: go_version
+    GOPROJECT: "godbg"
   
   steps:
   - script: |
+      docker pull i386/ubuntu:bionic
+      docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) &&
       sudo add-apt-repository ppa:gophers/archive
       sudo apt update
-      sudo apt install golang-$(GOVERSION)-go
+      sudo apt install golang-$(go_version)-go
       go version
-      make test
-    displayName: 'linux amd64'
+      make test"
+    displayName: 'linux 32bit'
