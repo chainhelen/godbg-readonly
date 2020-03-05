@@ -31,12 +31,7 @@ jobs:
       add-apt-repository ppa:longsleep/golang-backports && \
       apt-get -y install golang-$(go_version)-go && \
       export PATH=$PATH:/usr/lib/go-$(go_version)/bin && \
-      env && \
       go version && \
       uname -a && \
-      echo '???\n' && \
-      ls  && \
-      echo '???\n' && \
-      cat Makefile && \
       make test"
     displayName: 'linux 32bit'
