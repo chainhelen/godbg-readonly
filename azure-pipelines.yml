@@ -3,27 +3,29 @@ trigger:
     include:
     - '*'  
 
-pool:
-  vmImage: 'ubuntu-18.04'
-
-strategy:
-  matrix:
-    32bit-linux-go12:
-      go_version: "1.12"
-    32bit-linux-go13:
-      go_version: "1.13"
-    32bit-linux-go14:
-      go_version: "1.14"
-  maxParallel: 3
-
-variables:
-  GOVERSION: go_version
-
-steps:
-- script: |
-    sudo add-apt-repository ppa:gophers/archive
-    sudo apt update
-    sudo apt install golang-$(GOVERSION)-go
-    go version
-    make test
-  displayName: 'linux amd64'
+jobs:
+- job: linux_32bit
+  pool:
+    vmImage: 'ubuntu-18.04'
+  
+  strategy:
+    matrix:
+      go12:
+        go_version: "1.12"
+      go13:
+        go_version: "1.13"
+      go14:
+        go_version: "1.14"
+    maxParallel: 3
+  
+  variables:
+    GOVERSION: go_version
+  
+  steps:
+  - script: |
+      sudo add-apt-repository ppa:gophers/archive
+      sudo apt update
+      sudo apt install golang-$(GOVERSION)-go
+      go version
+      make test
+    displayName: 'linux amd64'
