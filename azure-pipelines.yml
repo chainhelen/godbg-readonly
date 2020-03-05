@@ -8,11 +8,11 @@ pool:
 
 strategy:
   matrix:
-    go12:
+    32bit-linux-go12:
       go_version: "1.12"
-    go13:
+    32bit-linux-go13:
       go_version: "1.13"
-    go14:
+    32bit-linux-go14:
       go_version: "1.14"
   maxParallel: 3
 
