@@ -20,7 +20,7 @@ jobs:
   
   variables:
     GOPROJECT: "godbg"
-    GOVERSION: go_version
+    GOVERSION: $(go_version)
   
   steps:
   - script: |
@@ -30,6 +30,10 @@ jobs:
       apt-get -y install software-properties-common && \
       add-apt-repository ppa:longsleep/golang-backports && \
       apt-get -y install golang-$(GOVERSION)-go && \
+      env && \
+      ll /usr/lib/ && \
+      echo 'wwwwww!!\n' && \
+      ll /usr/local/ && \
       go version && \
       uname -a && \
       make test"
