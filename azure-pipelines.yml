@@ -17,10 +17,7 @@ strategy:
   maxParallel: 3
 
 variables:
-  GOBIN:  '$(GOPATH)/bin' 
   GOVERSION: go_version
-  GOPATH: '$(system.defaultWorkingDirectory)/gopath'
-  modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)'
 
 steps:
 - script: |
@@ -29,5 +26,4 @@ steps:
     sudo apt install golang-$(GOVERSION)-go
     go version
     make test
-  workingDirectory: '$(modulePath)'
   displayName: 'linux amd64'
