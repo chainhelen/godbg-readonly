@@ -24,8 +24,8 @@ jobs:
   steps:
   - script: |
       docker pull i386/ubuntu:bionic
-      docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) &&
-      apt update  && \
+      docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) && \
+      apt -y update && \
       add-apt-repository ppa:gophers/archive && \
       apt install -y golang-$(go_version)-go && \
       go version && \
