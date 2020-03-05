@@ -24,7 +24,7 @@ jobs:
   steps:
   - script: |
       docker pull i386/ubuntu:bionic
-      docker run -v $(pwd):/$(go_project) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) && \
+      docker run -v $(pwd):/$(go_project) i386/ubuntu:bionic /bin/bash -c "cd $(go_project) && \
       apt-get -y update && \
       apt-get -y install software-properties-common && \
       add-apt-repository ppa:longsleep/golang-backports && \
