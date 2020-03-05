@@ -19,21 +19,18 @@ jobs:
     maxParallel: 3
   
   variables:
-    GOPROJECT: "godbg"
-    GOVERSION: $(go_version)
+    go_project: "godbg"
   
   steps:
   - script: |
       docker pull i386/ubuntu:bionic
-      docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) && \
+      docker run -v $(pwd):/$(go_project) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) && \
       apt-get -y update && \
       apt-get -y install software-properties-common && \
       add-apt-repository ppa:longsleep/golang-backports && \
-      apt-get -y install golang-$(GOVERSION)-go && \
+      apt-get -y install golang-$(go_version)-go && \
+      export PATH=$PATH:/usr/lib/$(go_version)/bin && \
       env && \
-      ls /usr/lib/ && \
-      echo 'wwwwww!!\n' && \
-      ls /usr/local/ && \
       go version && \
       uname -a && \
       make test"
