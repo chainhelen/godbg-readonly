@@ -25,10 +25,10 @@ jobs:
   - script: |
       docker pull i386/ubuntu:bionic
       docker run -v $(pwd):/$(GOPROJECT) i386/ubuntu:bionic /bin/bash -c "cd $(GOPROJECT) &&
-      add-apt-repository ppa:gophers/archive 
-      apt update
-      apt install golang-$(go_version)-go
-      go version
-      uname -a
+      apt update  && \
+      add-apt-repository ppa:gophers/archive && \
+      apt install -y golang-$(go_version)-go && \
+      go version && \
+      uname -a && \
       make test"
     displayName: 'linux 32bit'
