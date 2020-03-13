@@ -24,7 +24,7 @@ linux386_task:
     -  wget -q https://github.com/golang/go/archive/go1.14rc1.tar.gz
     -  tar -C /usr/ -xzf go1.14rc1.tar.gz
     -  export GOROOT_BOOTSTRAP=/usr/local/go1.4
-    -  cd /usr/go-go1.14rc1
+    -  cd /usr/go-go1.14rc1/src
     -  ./all.bash
   ss_script:
     - export PATH=$PATH:/usr/local/go1.4/bin
