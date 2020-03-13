@@ -18,13 +18,14 @@ linux386_task:
       - GOVERSION: 1.14
   test_script:
     -  yum -y install wget make git gcc
-    -  wget https://dl.google.com/go/go${GOVERSION}.linux-386.tar.gz
+    -  wget -q https://dl.google.com/go/go${GOVERSION}.linux-386.tar.gz
     -  tar -C /usr/local -xzf go${GOVERSION}.linux-386.tar.gz
     -  export PATH=$PATH:/usr/local/go/bin
-    -  wget https://github.com/golang/go/archive/go1.14rc1.tar.gz
+    -  wget -q https://github.com/golang/go/archive/go1.14rc1.tar.gz
     -  tar -C /usr/ -xzf go1.14rc1.tar.gz
     -  export GOROOT_BOOTSTRAP=/usr/local/go1.4
-    -  cd /usr/go
+    -  ll /usr
+    -  cd /usr/go1.14rc1
     -  ./all.bash
   ss_script:
     - export PATH=$PATH:/usr/local/go1.4/bin
